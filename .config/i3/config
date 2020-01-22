@@ -1,0 +1,269 @@
+############################
+# Colors and Customization #
+############################
+
+## Base16 Default Dark
+# Author: Chris Kempson (http://chriskempson.com)
+#
+# You can use these variables anywhere in the i3 configuration file.
+
+set $black      #282828
+set $bblack     #928374
+set $white      #a89984
+set $bwhite     #ebdbb2
+set $red        #cc241d
+set $bred       #fb4934
+set $green      #98971a
+set $bgreen     #b8bb26
+set $yellow     #f7ca88
+set $byellow    #fabd2f
+set $blue       #458588
+set $bblue      #83a598
+set $magenta    #b16286
+set $bmagenta   #d3869b
+set $cyan       #689d6a
+set $bcyan      #8ec07c
+
+#                       class   border  backgr. text indicator
+client.focused          $bwhite $blue   $black  $bwhite
+client.focused_inactive $bblack $cyan   $black  $white
+client.unfocused        $bblack $black  $black  $white
+client.urgent           $bred   $red    $bblack $bred
+
+default_border pixel 2
+
+hide_edge_borders smart
+default_floating_border none
+
+#for_window [class="URxvt" instance="float"] floating enable
+for_window [instance="imgview"] floating enable
+for_window [title="Helm"] floating enable
+
+font pango:Fira Code 8
+
+#output HDMI-A-1 pos 0 0 mode 2560x1440@144.005997Hz bg ~/絵/背景/1508248637572.jpg stretch
+
+#############
+# Variables #
+#############
+
+set $mod Mod4
+set $terminal alacritty
+set $workspace1  "1:一"
+set $workspace2  "2:二"
+set $workspace3  "3:三"
+set $workspace4  "4:四"
+set $workspace5  "5:五"
+set $workspace6  "6:六"
+set $workspace7  "7:七"
+set $workspace8  "8:八"
+set $workspace9  "9:九"
+set $workspace10 "10:十"
+set $workspace11 "11:十一"
+set $workspace12 "12:十二"
+set $workspace13 "13:十三"
+set $workspace14 "14:十四"
+set $workspace15 "15:十五"
+set $workspace16 "16:十六"
+set $workspace17 "17:十七"
+set $workspace18 "18:十八"
+set $workspace19 "19:十九"
+set $workspace20 "20:二十"
+set $workspace21 "21:二十一"
+set $workspace22 "22:二十二"
+
+##########################################
+# Window Movement (excluding workspaces) #
+##########################################
+
+# terminals
+bindsym $mod+Return  exec --no-startup-id $terminal
+#bindsym $sup+Return  exec --no-startup-id ~/scripts/selectterm
+
+# kill
+bindsym $mod+q kill
+
+# focus
+bindsym $mod+h  focus left
+bindsym $mod+j  focus down
+bindsym $mod+k    focus up
+bindsym $mod+l focus right
+
+# movement
+bindsym $mod+Shift+h    move left
+bindsym $mod+Shift+j    move down
+bindsym $mod+Shift+k    move up
+bindsym $mod+Shift+l    move right
+
+# splitting
+bindsym $mod+t split toggle
+#bindsym $mod+h split horizontal
+#bindsym $mod+v split v
+
+# fullscreen
+bindsym $mod+f fullscreen toggle
+
+# container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# floating
+floating_modifier $mod
+bindsym $mod+Shift+space floating toggle
+#bindsym $mod+space focus mode_toggle
+
+# parent/child focus
+bindsym $mod+a focus parent
+bindsym $mod+d focus child
+
+# resizing
+bindsym $mod+Mod1+Left        resize shrink width  5 px or 5 ppt
+bindsym $mod+Mod1+Down        resize grow   height 5 px or 5 ppt
+bindsym $mod+Mod1+Up          resize shrink height 5 px or 5 ppt
+bindsym $mod+Mod1+Right       resize grow   width  5 px or 5 ppt
+
+########
+# Gaps #
+########
+
+gaps inner 0
+gaps outer 0
+
+bindsym $mod+minus       gaps inner all minus 5
+bindsym $mod+plus        gaps inner all plus  5
+bindsym $mod+Shift+minus gaps outer all minus 5
+bindsym $mod+Shift+plus  gaps outer all plus  5
+
+##########################################
+# Workspaces (including window movement) #
+##########################################
+
+# movement
+bindsym $mod+Shift+1   move container to workspace $workspace1
+bindsym $mod+Shift+2   move container to workspace $workspace2
+bindsym $mod+Shift+3   move container to workspace $workspace3
+bindsym $mod+Shift+4   move container to workspace $workspace4
+bindsym $mod+Shift+5   move container to workspace $workspace5
+bindsym $mod+Shift+6   move container to workspace $workspace6
+bindsym $mod+Shift+7   move container to workspace $workspace7
+bindsym $mod+Shift+8   move container to workspace $workspace8
+bindsym $mod+Shift+9   move container to workspace $workspace9
+bindsym $mod+Shift+0   move container to workspace $workspace10
+bindsym $mod+Shift+F1  move container to workspace $workspace11
+bindsym $mod+Shift+F2  move container to workspace $workspace12
+bindsym $mod+Shift+F3  move container to workspace $workspace13
+bindsym $mod+Shift+F4  move container to workspace $workspace14
+bindsym $mod+Shift+F5  move container to workspace $workspace15
+bindsym $mod+Shift+F6  move container to workspace $workspace16
+bindsym $mod+Shift+F7  move container to workspace $workspace17
+bindsym $mod+Shift+F8  move container to workspace $workspace18
+bindsym $mod+Shift+F9  move container to workspace $workspace19
+bindsym $mod+Shift+F10 move container to workspace $workspace20
+bindsym $mod+Shift+F11 move container to workspace $workspace21
+bindsym $mod+Shift+F12 move container to workspace $workspace22
+
+# active workspace
+bindsym $mod+1   workspace $workspace1
+bindsym $mod+2   workspace $workspace2
+bindsym $mod+3   workspace $workspace3
+bindsym $mod+4   workspace $workspace4
+bindsym $mod+5   workspace $workspace5
+bindsym $mod+6   workspace $workspace6
+bindsym $mod+7   workspace $workspace7
+bindsym $mod+8   workspace $workspace8
+bindsym $mod+9   workspace $workspace9
+bindsym $mod+0   workspace $workspace10
+bindsym $mod+F1  workspace $workspace11
+bindsym $mod+F2  workspace $workspace12
+bindsym $mod+F3  workspace $workspace13
+bindsym $mod+F4  workspace $workspace14
+bindsym $mod+F5  workspace $workspace15
+bindsym $mod+F6  workspace $workspace16
+bindsym $mod+F7  workspace $workspace17
+bindsym $mod+F8  workspace $workspace18
+bindsym $mod+F9  workspace $workspace19
+bindsym $mod+F10 workspace $workspace20
+bindsym $mod+F11 workspace $workspace21
+bindsym $mod+F12 workspace $workspace22
+
+#workspace $workspace1  output LVDS-1
+#workspace $workspace2  output LVDS-1
+#workspace $workspace3  output LVDS-1
+#workspace $workspace4  output LVDS-1
+#workspace $workspace5  output LVDS-1
+#workspace $workspace6  output LVDS-1
+#workspace $workspace7  output LVDS-1
+#workspace $workspace8  output LVDS-1
+#workspace $workspace9  output LVDS-1
+#workspace $workspace10 output LVDS-1
+#workspace $workspace11 output DP-1
+#workspace $workspace12 output DP-1
+#workspace $workspace13 output DP-1
+#workspace $workspace14 output DP-1
+#workspace $workspace15 output DP-1
+#workspace $workspace16 output DP-1
+#workspace $workspace17 output DP-1
+#workspace $workspace18 output DP-1
+#workspace $workspace19 output DP-1
+#workspace $workspace20 output DP-1
+#workspace $workspace21 output DP-1
+#workspace $workspace22 output DP-1
+
+
+#####################
+# Other Keybindings #
+#####################
+
+bindsym Print        exec --no-startup-id flameshot gui
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
+bindsym $mod+space   exec --no-startup-id rofi -show run -lines 10 -width 40
+
+######################
+# Backlight Controls #
+######################
+
+#bindsym Control+Break     exec --no-startup-id sudo /home/reed/scripts/backlight.sh up
+#bindsym Control+BackSpace exec --no-startup-id sudo /home/reed/scripts/backlight.sh down
+
+########################
+# Pulse Audio Controls #
+########################
+
+bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +2
+bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -2
+
+#########################
+# Media Player Controls #
+#########################
+
+bindsym Control+Up    exec --no-startup-id mpc toggle
+bindsym Control+Right exec --no-startup-id mpc next
+bindsym Control+Down  exec --no-startup-id mpc stop
+bindsym Control+Left  exec --no-startup-id mpc prev
+
+##############################
+# Keyboard Layout & Bindings #
+##############################
+
+#input 1547:31233:IKBC_USB_Keyboard {
+#    xkb_layout us
+#    xkb_variant dvp
+#    xkb_options ctrl:nocaps
+#    repeat_delay 280
+#    repeat_rate 40
+#}
+
+#############
+# Autostart #
+#############
+
+exec --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id feh --bg-fill ~/絵/背景/1508262439204.jpg
+exec --no-startup-id compton
+exec --no-startup-id xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144.00
+exec --no-startup-id mpd
+exec --no-startup-id i3-msg 'workspace 1:一; exec firefox'
+exec --no-startup-id i3-msg 'workspace 2:二; exec emacs'

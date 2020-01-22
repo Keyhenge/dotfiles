@@ -1,0 +1,295 @@
+; vim:ft=dosini
+[colors]
+    black       = #282828
+    bblack      = #928374
+    white       = #a89984
+    bwhite      = #ebdbb2
+    red         = #cc241d
+    bred        = #fb4934
+    green       = #98971a
+    bgreen      = #b8bb26
+    yellow      = #f7ca88
+    byellow     = #fabd2f
+    blue        = #458588
+    bblue       = #83a598
+    magenta     = #b16286
+    bmagenta    = #d3869b
+    cyan        = #689d6a
+    bcyan       = #8ec07c
+
+
+[bar/bottom]
+    ;monitor = \${env:MONITOR:HDMI-0}
+    bottom = true
+    width = 100%
+    height = 1.7%
+    radius = 0
+    background = ${colors.black}
+    foreground = ${colors.white}
+    dpi = 0
+
+    wm-name = i3
+    locale = ja_JP.UTF-8
+    scroll-up = i3wm-wsnext
+    scroll-down = i3wm-wsprev
+
+    padding = 1
+    module-margin = 1
+    modules-left = i3wm
+    modules-center = music
+    modules-right = weather alsa date cpu
+    tray-position = right
+    tray-max-size = 16
+    tray-background = ${colors.black}
+    tray-foreground = ${colors.bronze}
+
+    ;enable-ipc = false ???
+
+    font-0 = IPAGothic:size=9;2
+    font-1 = Fira Code:size=9;1
+    font-2 = Siji:pixelsize=40
+    font-3 = Weather Icons:size=9;1
+
+[bar/top]
+    ;monitor = \${env:MONITOR:HDMI-0}
+    width = 100%
+    height = 1.7%
+    radius = 0
+    background = ${colors.black}
+    foreground = ${colors.white}
+    dpi = 0
+
+    wm-name = i3
+    locale = ja_JP.UTF-8
+    scroll-up = i3wm-wsnext
+    scroll-down = i3wm-wsprev
+
+    padding = 1
+    module-margin = 1
+    modules-left = weather
+    modules-center = taskwarrior
+    modules-right = cpu
+    tray-position = right
+    tray-max-size = 16
+    tray-background = ${colors.black}
+    tray-foreground = ${colors.bronze}
+
+    ;enable-ipc = false ???
+
+    font-0 = IPAGothic:size=9;2
+    font-1 = Fira Code:size=9;1
+    font-2 = Siji:pixelsize=40
+    font-3 = Weather Icons:size=9;1
+
+[module/i3wm]
+    type = internal/i3
+
+    ; Only show workspaces defined on the same output as the bar
+    ;
+    ; Useful if you want to show monitor specific workspaces
+    ; on different bars
+    ;
+    ; Default: false
+    ; pin-workspaces = true
+
+    ; This will split the workspace name on ':'
+    ; Default: false
+    strip-wsnumbers = true
+
+    ; Sort the workspaces by index instead of the default
+    ; sorting that groups the workspaces by output
+    ; Default: false
+    index-sort = true
+
+    ; Available tokens:
+    ;   %name%
+    ;   %icon%
+    ;   %index%
+    ;   %output%
+    ; Default: %icon%  %name%
+    label-focused = %name%
+    label-focused-background = ${colors.blue}
+    label-focused-foreground = ${colors.black}
+    label-focused-padding = 2
+
+    ; Available tokens:
+    ;   %name%
+    ;   %icon%
+    ;   %index%
+    ;   %output%
+    ; Default: %icon%  %name%
+    label-unfocused = %name%
+    label-unfocused-foreground = ${colors.blue}
+    label-unfocused-padding = 1
+
+    ; Available tokens:
+    ;   %name%
+    ;   %icon%
+    ;   %index%
+    ;   %output%
+    ; Default: %icon%  %name%
+    label-urgent-background = ${colors.bred}
+    label-urgent-underline = ${colors.red}
+    label-urgent-padding = 4
+
+    ; Separator in between workspaces
+    label-separator = |
+    ;label-separator-padding = 2
+    label-separator-foreground = ${colors.green}
+
+[module/music]
+    type = internal/mpd
+
+    ; Host where mpd is running (either ip or domain name)
+    ; Can also be the full path to a unix socket where mpd is running.
+    host = 127.0.0.1
+    port = 6600
+
+    ; Available tags:
+    ;   <label-song> (default)
+    ;   <label-time>
+    ;   <bar-progress>
+    ;   <toggle> - gets replaced with <icon-(pause|play)>
+    ;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+    ;   <icon-random>
+    ;   <icon-repeat>
+    ;   <icon-repeatone> (deprecated)
+    ;   <icon-single> - Toggle playing only a single song. Replaces <icon-repeatone>
+    ;   <icon-consume>
+    ;   <icon-prev>
+    ;   <icon-stop>
+    ;   <icon-play>
+    ;   <icon-pause>
+    ;   <icon-next>
+    ;   <icon-seekb>
+    ;   <icon-seekf>
+    format-online = <icon-consume> <icon-single> <icon-repeat> <icon-random> <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <bar-progress> <label-time>  <label-song>
+    format-playing = ${self.format-online}
+    format-paused = ${self.format-online}
+    format-stopped = ${self.format-online}
+    format-online-foreground = ${colors.green}
+    label-song-foreground = ${colors.green}
+
+    ; Available tags:
+    ;   <label-offline>
+    ; Default: ""
+    format-offline = <label-offline>
+
+    ; Available tokens:
+    ;   %artist%
+    ;   %album-artist%
+    ;   %album%
+    ;   %date%
+    ;   %title%
+    ; Default: %artist% - %title%
+    label-song =  %artist% - %album% / 「%title%」
+
+    ; Available tokens:
+    ;   %elapsed%
+    ;   %total%
+    ; Default: %elapsed% / %total%
+    label-time = %elapsed% / %total%
+
+    ; Available tokens:
+    ;   None
+    label-offline =  mpd is offline
+
+    ; Only applies if <icon-X> is used
+    icon-play = 
+    icon-pause = 
+    icon-stop = 
+    icon-prev = 
+    icon-next = 
+    icon-seekb = 
+    icon-seekf = 
+    icon-random = 
+    icon-repeat = 
+    ;icon-repeatone = 
+    icon-single = 
+    icon-consume = 
+
+    ; Used to display the state of random/repeat/repeatone/single
+    ; Only applies if <icon-[random|repeat|repeatone|single]> is used
+    toggle-on-foreground = ${colors.green}
+    toggle-off-foreground = ${colors.red}
+
+    ; Only applies if <bar-progress> is used
+    bar-progress-width = 35
+    bar-progress-indicator = |
+    bar-progress-fill = ─
+    bar-progress-empty = ─
+
+[module/alsa]
+    type = internal/alsa
+    interval = 5
+    format-volume = <ramp-volume> <label-volume>
+    ; Available tokens:
+    ;   %percentage% (default)
+    label-muted =  %percentage%%
+    label-muted-foreground = ${colors.red}
+    label-muted-padding = 1
+
+    ; Only applies if <ramp-volume> is used
+    ramp-volume-0 = 
+    ramp-volume-1 = 
+
+    format-volume-foreground = ${colors.bcyan}
+    format-volume-padding = 1
+
+[module/date]
+    type = internal/date
+    internal = 5
+    time = %H:%M:%S
+    time-alt = %H:%M:%S
+    date-alt = %a, %d日%B%Y年
+    label = %time%  %date%
+
+    ; Available tags:
+    ;   <label> (default)
+    format =  <label>
+    format-foreground = ${colors.bblue}
+    format-padding = 1
+
+[module/cpu]
+    type = internal/cpu
+
+    ; Seconds to sleep between updates
+    ; Default: 1
+    interval = 0.5
+
+    ; Available tags:
+    ;   <label> (default)
+    ;   <bar-load>
+    ;   <ramp-load>
+    ;   <ramp-coreload>
+    format = <ramp-load>
+
+    ; Spacing between individual per-core ramps
+    ramp-load-spacing = 1
+    ramp-load-0 = ▁
+    ramp-load-1 = ▂
+    ramp-load-2 = ▃
+    ramp-load-3 = ▄
+    ramp-load-4 = ▅
+    ramp-load-5 = ▆
+    ramp-load-6 = ▇
+    ramp-load-7 = █
+    
+    format-foreground = ${colors.bred}
+    format-padding = 1
+
+[module/taskwarrior]
+    interval = 5
+    type = custom/script
+    exec = ~/.config/polybar/task_polybar.sh
+    format = <label>
+    format-foreground = ${colors.bred}
+    format-prefix = " "
+    click-left = task "$((`cat /tmp/tw_polybar_id`))" done
+
+[module/weather]
+    type = custom/script
+    exec = ~/.config/polybar/openweathermap-fullfeatured.sh
+    interval = 600
+    label-font = 4
+    label-foreground = ${colors.magenta}
