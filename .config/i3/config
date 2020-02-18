@@ -38,6 +38,7 @@ default_floating_border none
 #for_window [class="URxvt" instance="float"] floating enable
 for_window [instance="imgview"] floating enable
 for_window [title="Helm"] floating enable
+for_window [class="mpv"] floating enable
 
 font pango:Fira Code 8
 
@@ -265,5 +266,5 @@ exec --no-startup-id feh --bg-fill ~/絵/背景/1508262439204.jpg
 exec --no-startup-id compton
 exec --no-startup-id xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144.00
 exec --no-startup-id mpd
-exec --no-startup-id i3-msg 'workspace 1:一; exec firefox'
+exec --no-startup-id i3-msg 'workspace 1:一; exec qutebrowser'
 exec --no-startup-id i3-msg 'workspace 2:二; exec emacs'

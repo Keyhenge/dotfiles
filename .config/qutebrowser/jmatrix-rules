@@ -1,0 +1,39 @@
+# WARNING: This file can be overwritten easily with the :jmatrix-write-rules command
+# When data is overwritten, formatting and comments will be lost.
+# Please exercise caution when editing this file directly, and make sure to keep backups.
+
+
+https-strict: behind-the-scene false
+matrix-off: behind-the-scene true
+matrix-off: about-scheme true
+matrix-off: chrome-extension-scheme true
+matrix-off: chrome-scheme true
+matrix-off: moz-extension-scheme true
+matrix-off: opera-scheme true
+matrix-off: vivaldi-scheme true
+matrix-off: wyciwyg-scheme true
+matrix-off: qute-scheme true
+* * * block
+* * css allow
+* * frame block
+* * image allow
+* 1st-party * allow
+* 1st-party frame allow
+boards.4channel.org s.4cdn.org script allow
+boards.4channel.org a.4cdn.org xhr allow
+boards.4channel.org nstepien.github.io xhr allow
+boards.4channel.org i.4cdn.org media allow
+www.youtube.com r4---sn-5uaeznkz.googlevideo.com other allow
+www.youtube.com r4---sn-5uaeznkz.googlevideo.com xhr allow
+www.youtube.com i.ytimg.com other allow
+www.youtube.com *.googlevideo.com other allow
+www.youtube.com *.googlevideo.com xhr allow
+gitlab.com assets.gitlab-static.net script allow
+melpa.org cdnjs.cloudflare.com script allow
+www.binance.com bin.bnbstatic.com script allow
+cryptobriefing.com cdnjs.cloudflare.com script allow
+cryptobriefing.com code.jquery.com script allow
+cryptobriefing.com 1862e931834849b7a8be361d01234b5a.js.ubembed.com script block
+cryptobriefing.com appsha1.cointraffic.io script block
+discordapp.com gateway.discord.gg other allow
+discordapp.com us-east661.discord.media other allow
