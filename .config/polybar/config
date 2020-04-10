@@ -241,7 +241,7 @@
     internal = 5
     time = %H:%M:%S
     time-alt = %H:%M:%S
-    date-alt = %a, %d日%B%Y年
+    date = %a, %d日%B%Y年
     label = %time%  %date%
 
     ; Available tags:

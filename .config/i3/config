@@ -30,9 +30,9 @@ client.focused_inactive $bblack $cyan   $black  $white
 client.unfocused        $bblack $black  $black  $white
 client.urgent           $bred   $red    $bblack $bred
 
-default_border pixel 2
+default_border pixel 4
 
-hide_edge_borders smart
+hide_edge_borders both
 default_floating_border none
 
 #for_window [class="URxvt" instance="float"] floating enable
@@ -97,9 +97,9 @@ bindsym $mod+Shift+k    move up
 bindsym $mod+Shift+l    move right
 
 # splitting
-bindsym $mod+t split toggle
-#bindsym $mod+h split horizontal
-#bindsym $mod+v split v
+#bindsym $mod+t split toggle
+bindsym $mod+n split horizontal
+bindsym $mod+m split vertical
 
 # fullscreen
 bindsym $mod+f fullscreen toggle
@@ -264,7 +264,7 @@ bindsym Control+Left  exec --no-startup-id mpc prev
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id feh --bg-fill ~/絵/背景/1508262439204.jpg
 exec --no-startup-id compton
-exec --no-startup-id xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144.00
+exec --no-startup-id xrandr --output HDMI-1 --mode 2560x1440 --rate 144.01
 exec --no-startup-id mpd
 exec --no-startup-id i3-msg 'workspace 1:一; exec qutebrowser'
 exec --no-startup-id i3-msg 'workspace 2:二; exec emacs'

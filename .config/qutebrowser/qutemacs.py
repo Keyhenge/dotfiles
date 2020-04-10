@@ -79,7 +79,7 @@ c.bindings.commands['normal'] = {
     '<ctrl-x>r': 'config-cycle statusbar.hide',
     '<ctrl-x>1': 'tab-only;;message-info "cleared all other tabs"',
     '<ctrl-x>0': 'close',
-    '<ctrl-x><ctrl-c>': 'quit',
+    '<ctrl-x><ctrl-q>': 'quit',
 
     # searching
     '<ctrl-s>': 'set-cmd-text /',
@@ -87,7 +87,9 @@ c.bindings.commands['normal'] = {
 
     # hinting
     '<alt-s>': 'hint all',
+    '<alt-t>': 'hint links run :open -t {hint-url}',
     '<alt-h>': 'hint links run :open -p {hint-url}',
+    '<alt-m>': 'hint links spawn --detach mpv --force-window yes {hint-url}',
 
     # tabs
     '<ctrl-tab>': 'tab-next',
@@ -96,8 +98,8 @@ c.bindings.commands['normal'] = {
     # open links
     '<ctrl-l>': 'set-cmd-text -s :open',
     '<ctrl-x><ctrl-f>': 'set-cmd-text -s :open -t',
+    '<ctrl-x><ctrl-h>': 'set-cmd-text -s :open -p',
     '<alt-l>': 'set-cmd-text -s :open --private',
-    '<Ctrl-m>': 'hint links spawn --detach mpv --force-window yes {hint-url}',
 
     # editing
     '<alt-[>': 'back',
@@ -121,6 +123,11 @@ c.bindings.commands['normal'] = {
     '<ctrl-w>': 'fake-key <Ctrl-x>;;message-info "cut to clipboard"',
     '<alt-w>': 'fake-key <Ctrl-c>;;message-info "copy to clipboard"',
     '<ctrl-y>': 'insert-text {primary}',
+
+    # Zoom
+    '<ctrl-=>': 'zoom-in', #so you don't have to press shift all the time
+    '<ctrl-+>': 'zoom-in',
+    '<ctrl-->': 'zoom-out',
 
     '1': 'fake-key 1',
     '2': 'fake-key 2',
@@ -168,12 +175,18 @@ c.bindings.commands['caret'] = {
 config.bind('<Ctrl-x><Ctrl-l>', 'config-source')
 config.bind('<f11>', 'fullscreen')
 
-c.tabs.show = 'never'
+c.tabs.show = 'switching'
 c.statusbar.hide = False
 c.url.searchengines["ddg"] = "https://duckduckgo.com/?q={}"
-c.url.searchengines["mg"] = "https://metager.org/meta/meta.ger3?eingabe={}"
 c.url.searchengines["sp"] = "https://duckduckgo.com/?q=!sp+{}"
+c.url.searchengines["sx"] = "https://searx.ninja/?q={}&categories=general&language=en-US"
+
+c.url.searchengines["ama"] = "https://www.amazon.com/s?k={}"
+c.url.searchengines["ji"] = "https://jisho.org/search/{}"
 c.url.searchengines["y"] = "https://www.youtube.com/results?search_query={}"
-c.url.searchengines["a"] = "https://www.amazon.com/s?k={}"
-c.url.searchengines["DEFAULT"] = "https://duckduckgo.com/?q={}"
-#c.url.start_pages = ["https://metager.org"]
+c.url.searchengines["nixo"] = "https://nixos.org/nixos/options.html#{}"
+c.url.searchengines["nixp"] = "https://nixos.org/nixos/packages.html?channel=nixos-unstable&query={}"
+
+c.url.searchengines["DEFAULT"] = "https://searx.ninja/?q={}&categories=general&language=en-US"
+
+c.url.start_pages = ["https://searx.ninja/"]
