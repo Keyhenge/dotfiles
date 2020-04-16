@@ -29,6 +29,8 @@ boards.4channel.org www.google.com frame allow
 boards.4channel.org www.gstatic.com script allow
 boards.4channel.org api.github.com xhr allow
 boards.4channel.org media.vocaroo.com media allow
+boards.4channel.org arch.b4k.co xhr allow
+boards.4channel.org desuarchive.org xhr allow
 www.youtube.com r4---sn-5uaeznkz.googlevideo.com other allow
 www.youtube.com r4---sn-5uaeznkz.googlevideo.com xhr block
 www.youtube.com i.ytimg.com other allow
@@ -76,6 +78,7 @@ boards.4chan.org s.4cdn.org script allow
 boards.4chan.org a.4cdn.org xhr allow
 boards.4chan.org nstepien.github.io xhr allow
 boards.4chan.org i.4cdn.org media allow
+boards.4chan.org t.fakku.net image block
 store.steampowered.com steamstore-a.akamaihd.net script allow
 store.steampowered.com steamcdn-a.akamaihd.net media allow
 admin.gandi.net assets-admin-gandi.global.ssl.fastly.net other allow
@@ -110,7 +113,11 @@ cgcookie.com m.stripe.network frame allow
 cgcookie.com fast.wistia.net frame allow
 cgcookie.com fast.wistia.com script allow
 cgcookie.com embedwistia-a.akamaihd.net xhr allow
+cgcookie.com app.wistia.com script allow
+cgcookie.com pipedream.wistia.com xhr allow
+cgcookie.com embed-fastly.wistia.com xhr allow
 studio.youtube.com s.ytimg.com script allow
 www.twitch.tv static.twitchcdn.net other allow
 www.twitch.tv static.twitchcdn.net script allow
 matrix-nio.readthedocs.io assets.readthedocs.org script allow
+swaywm.org sr.ht media allow

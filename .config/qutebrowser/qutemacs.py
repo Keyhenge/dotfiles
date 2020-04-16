@@ -63,53 +63,64 @@ for symb in [',', '.', '/', '\'', ';', '[', ']', '\\',
 
 # Bindings
 c.bindings.commands['normal'] = {
+    # Qutebrowser management
+    '<ctrl-x><ctrl-q>': 'quit',
+    '<ctrl-x><ctrl-r>': 'config-source',
+    '<ctrl-h>': 'set-cmd-text -s :help',
+    
     # Navigation
     '<ctrl-space>': 'enter-mode insert',
-    '<ctrl-]>': 'fake-key <Ctrl-Shift-Right>',
-    '<ctrl-[>': 'fake-key <Ctrl-Shift-Left>',
+    '<alt-[>': 'back',
+    '<alt-]>': 'forward',
     '<ctrl-v>': 'scroll-page 0 0.7',
     '<alt-v>': 'scroll-page 0 -0.7',
-    '<ctrl-shift-v>': 'scroll-page 0 1',
-    '<alt-shift-v>': 'scroll-page 0 -1',
     '<ctrl-r>': 'reload',
-
     '<alt-x>': 'set-cmd-text :',
-    '<ctrl-x><ctrl-b>': 'set-cmd-text -s :buffer;;fake-key <Down><Down><Down>',
-    '<ctrl-x>k': 'tab-close',
     '<ctrl-x>r': 'config-cycle statusbar.hide',
-    '<ctrl-x>1': 'tab-only;;message-info "cleared all other tabs"',
-    '<ctrl-x>0': 'close',
-    '<ctrl-x><ctrl-q>': 'quit',
+    '<ctrl-x>e': 'edit-url',
 
-    # searching
+    # Information
+    '<ctrl-c>i': 'message-info {title}',
+    '<ctrl-c>u': 'yank url',
+    '<ctrl-c>p': 'yank pretty-url',
+    '<ctrl-c>t': 'yank title',
+    '<ctrl-c>d': 'yank domain',
+
+    # Searching
     '<ctrl-s>': 'set-cmd-text /',
     '<ctrl-alt-s>': 'search-prev',
 
-    # hinting
+    # Hinting
     '<alt-s>': 'hint all',
     '<alt-t>': 'hint links run :open -t {hint-url}',
     '<alt-h>': 'hint links run :open -p {hint-url}',
-    '<alt-m>': 'hint links spawn --detach mpv --force-window yes {hint-url}',
+    '<alt-m>': 'hint links spawn --detach umpv --force-window yes {hint-url}',
 
-    # tabs
+    # Tabs/Window management
     '<ctrl-tab>': 'tab-next',
     '<ctrl-shift-tab>': 'tab-prev',
+    '<ctrl-x><ctrl-b>': 'set-cmd-text -s :buffer;;fake-key <Down><Down><Down>',
+    '<ctrl-x>1': 'tab-only;;message-info "cleared all other tabs"',
+    '<ctrl-x>2': 'open -w {url};;tab-close;;message-info "Sent to new window"',
+    '<ctrl-x>3': 'open -p {url};;tab-close;;message-info "Sent to new private window"',
+    '<ctrl-x>k': 'tab-close',
+    '<ctrl-x>0': 'close',
+    '<ctrl-x>o': 'tab-focus last',
 
-    # open links
+    # Open
     '<ctrl-l>': 'set-cmd-text -s :open',
     '<ctrl-x><ctrl-f>': 'set-cmd-text -s :open -t',
     '<ctrl-x><ctrl-h>': 'set-cmd-text -s :open -p',
-    '<alt-l>': 'set-cmd-text -s :open --private',
+    '<ctrl-x><ctrl-l>': 'set-cmd-text -s :open {url}',
 
-    # editing
-    '<alt-[>': 'back',
-    '<alt-]>': 'forward',
+    # Editing
+    '<ctrl-shift-e>': 'fake-key <Ctrl-Shift-Right>',
+    '<ctrl-shift-a>': 'fake-key <Ctrl-Shift-Left>',
     '<ctrl-/>': 'fake-key <Ctrl-z>',
     '<ctrl-shift-?>': 'fake-key <Ctrl-Shift-z>',
     '<ctrl-k>': 'fake-key <Shift-End>;;fake-key <Backspace>',
     '<ctrl-f>': 'fake-key <Right>',
     '<ctrl-b>': 'fake-key <Left>',
-    '<alt-o>': 'tab-focus last',
     '<ctrl-a>': 'fake-key <Home>',
     '<ctrl-x>h': 'fake-key <Ctrl-a>',
     '<ctrl-e>': 'fake-key <End>',
@@ -119,7 +130,6 @@ c.bindings.commands['normal'] = {
     '<alt-b>': 'fake-key <Ctrl-Left>',
     '<ctrl-d>': 'fake-key <Delete>',
     '<alt-d>': 'fake-key <Ctrl-Delete>',
-    '<alt-backspace>': 'fake-key <Ctrl-Backspace>',
     '<ctrl-w>': 'fake-key <Ctrl-x>;;message-info "cut to clipboard"',
     '<alt-w>': 'fake-key <Ctrl-c>;;message-info "copy to clipboard"',
     '<ctrl-y>': 'insert-text {primary}',
@@ -141,7 +151,6 @@ c.bindings.commands['normal'] = {
     '0': 'fake-key 0',
 
     # escape hatch
-    '<ctrl-h>': 'set-cmd-text -s :help',
     '<ctrl-g>': ESC_BIND,
 }
 
@@ -172,7 +181,6 @@ c.bindings.commands['caret'] = {
 }
 
 #config.bind('<Tab>', 'fake-key <f1>')
-config.bind('<Ctrl-x><Ctrl-l>', 'config-source')
 config.bind('<f11>', 'fullscreen')
 
 c.tabs.show = 'switching'
